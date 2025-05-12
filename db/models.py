@@ -63,6 +63,7 @@ class MovieSession(models.Model):
 
 
 class Order(models.Model):
+    # "Keep default=datetime.now because tests fail with auto_now_add=True"
     created_at = models.DateTimeField(default=datetime.now)
     user = models.ForeignKey(
         to=settings.AUTH_USER_MODEL,
